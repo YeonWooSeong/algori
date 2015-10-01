@@ -10,34 +10,33 @@ public class ContinueSearch {
 	 * 검색어 [동해] 가 존재하는지 여부 체크
 	 */
 	public static void main(String[] args) {
-
 		String dest = "동해물백두산";
+		int max = 0;
 		boolean isExist = false;
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
-			System.out.println("검색어를 입력하세요.종료하려면 q을 입력하세요.");
-			String search = scanner.next();
-			return;
-		}
+			System.out.println("검색어를 입력하세요. 종료하려면 q을 눌러주세요");
+			String search = scanner.next(); //백두
 			if (search.equals("q")) {
+				return;
+			} 
 			isExist = false;
-			int max = dest.length() - search.length(); 
-			Foo:
-				/*	System.out.println(max);*/
-				
-				for (int i = 0; i <= max; i++) {
-				int searchCount = search.length(); 
-				int deststartPoint = i;				  
-				int searchStartPoint = 0;
-				while (searchCount-- != 0) {
-					if (dest.charAt(deststartPoint++) != search.charAt(searchStartPoint++)) {
-						continue Foo;
+			max = dest.length() - search.length(); // 검색어를 뺀 회전수는 의미없다.
+			System.out.println(max);
+			test: for (int i = 0; i <= max; i++) { 
+				int serchCount = search.length(); 
+				int deststartPoint = i; // 검색을 마친 후 다음 검색대상 낱말의 위치 
+				int searchstarPoint = 0;
+				// 동해물백두산
+			while (serchCount -- != 0) {
+				if (dest.charAt(deststartPoint++) != search.charAt(searchstarPoint++)) {
+					continue test;
 					}
 				}
-				isExist = true;
-				break Foo;
-			}
-			System.out.println(isExist ? "검색어" + "[" + search + "]존재" : "존재하지 않음.");
+			isExist = true;
+			break test;
+		}
+			System.out.println(isExist?"검색어["+search+"]존재함":"존재하지 않음");
 		}
 	}
 }

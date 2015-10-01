@@ -20,7 +20,7 @@ public class GameRpsServiceImpl implements gameRpsService {
 		default:
 			break;
 		}
-		return result; //결과를 나타내는 
+		return result; //결과를 나타내는  가위바위보 의 결과 = 이김 짐 비김.
 	}
 
 	// 두 값을 받아서 가위 바위 보 승부
